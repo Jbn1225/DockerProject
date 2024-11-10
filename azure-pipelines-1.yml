@@ -1,0 +1,15 @@
+trigger:
+  branches:
+    include:
+      - main  # Triggers the pipeline on changes to the main branch
+
+pool:
+  vmImage: 'ubuntu-latest'  # Specifies Ubuntu VM for running the build
+
+steps:
+  - task: Docker@2  # Uses Docker task in Azure DevOps
+    inputs:
+      containerRegistry: 'DockerCIProject'  # Replace with your Docker registry name or service connection name
+      repository: 'https://index.docker.io/v1/'               # Name of your Docker image repository
+      command: 'buildAndPush'                # Command to build and push the Docker image
+      tags: 'latest'                         # Optional: Tag for the Docker image
