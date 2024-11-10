@@ -9,7 +9,7 @@ pool:
 steps:
   - task: Docker@2  # Uses Docker task in Azure DevOps
     inputs:
-      containerRegistry: 'myDockerRegistry'  # Replace with your Docker registry name or service connection name
-      repository: 'sample-app'               # Name of your Docker image repository
+      containerRegistry: 'DockerCIProject'  # Replace with your Docker registry name or service connection name
+      repository: 'Jbn1225/DockerProject'               # Name of your Docker image repository
       command: 'buildAndPush'                # Command to build and push the Docker image
       tags: 'latest'                         # Optional: Tag for the Docker image
